@@ -12,7 +12,7 @@
     "last_reset_date": "2026-09-09",
     "warmup_enabled": true,
     "warmup_score": 98,
-    "warmup_sent_today": 0
+    "warmup_sent_today": 1
   },
   {
     "id": "acc_beta",
@@ -27,6 +27,6 @@
     "last_reset_date": "2026-09-09",
     "warmup_enabled": true,
     "warmup_score": 98,
-    "warmup_sent_today": 2
+    "warmup_sent_today": 5
   }
 ]

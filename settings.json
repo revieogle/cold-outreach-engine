@@ -1,0 +1,15 @@
+{
+  "campaign_name": "Q3 Enterprise Outreach Campaign",
+  "followup_delay_days": 3,
+  "min_sleep_seconds": 30,
+  "max_sleep_seconds": 90,
+  "imap_poll_interval_seconds": 120,
+  "web_port": 8080,
+  "track_opens": true,
+  "track_clicks": true,
+  "warmup_interval_minutes": 45,
+  "warmup_daily_target": 6,
+  "step_1_subject": "Quick question regarding {{company}}'s operations",
+  "step_1_body": "Hi {{first_name}},\n\nI was reviewing {{company}}'s recent growth and was really impressed by how your team is scaling.\n\n{{custom_hook}}\n\nWould you be open to a brief 5-minute introductory conversation this Thursday or Friday?\n\nBest regards,\nAlex Vance\nDirector of Growth",
+  "step_2_body": "Hi {{first_name}},\n\nFollowing up quickly on my note from a few days ago.\n\nI understand your schedule is packed, but I would love to share how we helped a similar team in your sector cut onboarding overhead by 40%.\n\nDo you have 5 minutes to connect sometime this week?\n\nBest regards,\nAlex Vance"
+}

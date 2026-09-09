@@ -8,7 +8,38 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
   <style>
-    :root {
+    :root, [data-theme="light"] {
+      /* Digital Friday Signature Light Paper Palette */
+      --bg-base: #F6F3EF;          /* Digital Friday canvas --df-bg */
+      --bg-sidebar: #EDE8E1;       /* Architectural warm sidebar */
+      --bg-surface: #FDFCF9;       /* Digital Friday paper --df-paper */
+      --bg-surface-hover: #F2EEE7;
+      --bg-card: #FDFCF9;
+      --bg-elevated: #FFFFFF;
+      --border-subtle: #DDDCD4;    /* Digital Friday line --df-line */
+      --border-light: #C9C7BC;
+      --text-primary: #292C29;     /* Digital Friday ink --df-ink */
+      --text-secondary: #686C65;   /* Digital Friday muted --df-muted */
+      --text-muted: #8E938B;
+      --accent-indigo: #059669;    /* Digital Friday Emerald Green */
+      --accent-violet: #10B981;
+      --accent-gradient: linear-gradient(135deg, #059669 0%, #10B981 100%);
+      --accent-emerald: #059669;
+      --accent-amber: #D97706;
+      --accent-rose: #E11D48;
+      --accent-sky: #0284C7;
+      --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --shadow-sm: 0 1px 2px rgba(41, 44, 41, 0.05);
+      --shadow-md: 0 4px 12px rgba(41, 44, 41, 0.08);
+      --shadow-lg: 0 12px 28px rgba(41, 44, 41, 0.12);
+      --glow-indigo: 0 0 18px rgba(5, 150, 105, 0.25);
+      --scrollbar-thumb: #D4D0C6;
+      --scrollbar-thumb-hover: #B8B3A7;
+    }
+
+    [data-theme="dark"] {
+      /* Digital Friday Signature Botanical Dark Palette */
       --bg-base: #131613;
       --bg-sidebar: #171B17;
       --bg-surface: #1D221D;
@@ -30,9 +61,11 @@
       --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.5);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -4px rgba(0, 0, 0, 0.6);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
       --glow-indigo: 0 0 20px rgba(16, 185, 129, 0.35);
+      --scrollbar-thumb: #2D362D;
+      --scrollbar-thumb-hover: #3E4B3E;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,8 +84,102 @@
     /* Custom sleek scrollbar */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg-base); }
-    ::-webkit-scrollbar-thumb { background: #2D362D; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #3E4B3E; }
+    
+    /* Theme Switcher Widget & Light Mode Refinements */
+    .theme-switcher-widget {
+      display: flex;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 3px;
+      margin-bottom: 12px;
+      gap: 3px;
+    }
+    .theme-switch-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+    .theme-switch-btn:hover { color: var(--text-primary); }
+    .theme-switch-btn.active {
+      background: var(--bg-elevated);
+      color: var(--accent-indigo);
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+    }
+
+    [data-theme="light"] body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+    }
+    [data-theme="light"] .brand-text h1 {
+      color: var(--text-primary);
+    }
+    [data-theme="light"] .sidebar-footer {
+      background: rgba(237, 232, 225, 0.7);
+    }
+    [data-theme="light"] .btn-secondary {
+      background: #FFFFFF;
+      border-color: var(--border-subtle);
+      color: var(--text-primary);
+      box-shadow: 0 1px 2px rgba(41, 44, 41, 0.05);
+    }
+    [data-theme="light"] .btn-secondary:hover {
+      background: #F5F1E8;
+      border-color: var(--border-light);
+    }
+    [data-theme="light"] .badge-pending {
+      background: rgba(100, 116, 139, 0.12);
+      color: #475569;
+      border: 1px solid rgba(100, 116, 139, 0.25);
+    }
+    [data-theme="light"] .badge-replied {
+      background: rgba(5, 150, 105, 0.12);
+      color: #047857;
+      border: 1px solid rgba(5, 150, 105, 0.25);
+    }
+    [data-theme="light"] .badge-step1 {
+      background: rgba(2, 132, 199, 0.12);
+      color: #0369A1;
+      border: 1px solid rgba(2, 132, 199, 0.25);
+    }
+    [data-theme="light"] .badge-step2 {
+      background: rgba(16, 185, 129, 0.12);
+      color: #065F46;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+    [data-theme="light"] .badge-ooo {
+      background: rgba(217, 119, 6, 0.12);
+      color: #B45309;
+      border: 1px solid rgba(217, 119, 6, 0.25);
+    }
+    [data-theme="light"] .kpi-value {
+      color: var(--text-primary) !important;
+    }
+    [data-theme="light"] .form-control-input,
+    [data-theme="light"] .composer-textarea {
+      background: #FFFFFF;
+      border-color: var(--border-subtle);
+      color: var(--text-primary);
+    }
+    [data-theme="light"] .modal-overlay {
+      background: rgba(41, 44, 41, 0.45);
+    }
+
+    ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
 
     /* Layout Shell */
     .app-shell {
@@ -1180,6 +1307,12 @@
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('df_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
 </head>
 <body>
   <div class="app-shell">
@@ -1278,6 +1411,17 @@
 
       <!-- Sidebar Footer -->
       <div class="sidebar-footer">
+                <!-- Digital Friday Theme Switcher -->
+        <div class="theme-switcher-widget">
+          <button class="theme-switch-btn active" id="themeBtnLight" onclick="setTheme('light')">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <span>Light</span>
+          </button>
+          <button class="theme-switch-btn" id="themeBtnDark" onclick="setTheme('dark')">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <span>Dark</span>
+          </button>
+        </div>
         <div class="system-health-pill">
           <div class="status-dot"></div>
           <div>
@@ -1305,6 +1449,11 @@
           </div>
         </div>
         <div class="header-actions">
+                    <!-- Theme Switcher Button -->
+          <button class="btn btn-secondary" id="headerThemeBtn" onclick="toggleTheme()" title="Switch Light / Dark Theme" style="gap: 6px; padding: 7px 12px;">
+            <span id="themeToggleIcon">☀️</span>
+            <span id="themeToggleText">Light</span>
+          </button>
           <button class="btn btn-secondary" onclick="openModal('uploadModal')">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
             <span>Import CSV</span>

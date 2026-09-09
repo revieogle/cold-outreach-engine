@@ -2574,6 +2574,43 @@
        CLIENT APPLICATION LOGIC (Instantly.ai / Smartlead SPA)
        ==================================================================== -->
   <script>
+    /* ==========================================================================
+       DIGITAL FRIDAY THEME SWITCHER LOGIC
+       ========================================================================== */
+    function initTheme() {
+      const savedTheme = localStorage.getItem('df_theme') || 'light';
+      setTheme(savedTheme, false);
+    }
+
+    function setTheme(theme, save = true) {
+      document.documentElement.setAttribute('data-theme', theme);
+      if (save) localStorage.setItem('df_theme', theme);
+
+      const btnLight = document.getElementById('themeBtnLight');
+      const btnDark = document.getElementById('themeBtnDark');
+      const toggleText = document.getElementById('themeToggleText');
+      const toggleIcon = document.getElementById('themeToggleIcon');
+
+      if (theme === 'light') {
+        if (btnLight) btnLight.classList.add('active');
+        if (btnDark) btnDark.classList.remove('active');
+        if (toggleText) toggleText.textContent = 'Light';
+        if (toggleIcon) toggleIcon.textContent = '☀️';
+      } else {
+        if (btnLight) btnLight.classList.remove('active');
+        if (btnDark) btnDark.classList.add('active');
+        if (toggleText) toggleText.textContent = 'Dark';
+        if (toggleIcon) toggleIcon.textContent = '🌙';
+      }
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      setTheme(current === 'light' ? 'dark' : 'light');
+    }
+
+    initTheme();
+
     // State Store
     let APP_STATE = {
       currentView: 'analytics',

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 ================================================================================
-INSTALEAD AI — COLD EMAIL OUTREACH ENGINE & MASTER UNIBOX (CLOUD-READY)
+DIGITAL FRIDAY AI — COLD EMAIL OUTREACH ENGINE & MASTER UNIBOX (CLOUD-READY)
 ================================================================================
 A complete, self-contained, production-grade cold email outreach suite and
 Unified Master Inbox (Instantly.ai / Smartlead clone) in standard Python 3.10+.
@@ -93,7 +93,7 @@ current_account_index = 0
 
 # Runtime status message for web interface toast
 runtime_status = {
-    "message": "InstaLead outreach engine running normally.",
+    "message": "Digital Friday outreach engine running normally.",
     "type": "info",
     "timestamp": datetime.now().strftime("%H:%M:%S"),
     "outbound_running": False,
@@ -1320,7 +1320,7 @@ class OutreachDashboardHandler(BaseHTTPRequestHandler):
 
     def require_auth(self):
         self.send_response(401)
-        self.send_header("WWW-Authenticate", 'Basic realm="InstaLead AI Cloud"')
+        self.send_header("WWW-Authenticate", 'Basic realm="Digital Friday AI Cloud"')
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.end_headers()
         self.wfile.write(b"<h1>401 Unauthorized</h1><p>Authentication required.</p>")

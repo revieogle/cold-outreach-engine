@@ -1,0 +1,32 @@
+[
+  {
+    "id": "acc_alpha",
+    "email": "outreach.demo1@example.com",
+    "password": "app_password_placeholder",
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "imap_server": "imap.gmail.com",
+    "imap_port": 993,
+    "daily_limit": 50,
+    "sent_today": 0,
+    "last_reset_date": "2026-09-09",
+    "warmup_enabled": true,
+    "warmup_score": 98,
+    "warmup_sent_today": 0
+  },
+  {
+    "id": "acc_beta",
+    "email": "outreach.demo2@example.com",
+    "password": "app_password_placeholder",
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "imap_server": "imap.gmail.com",
+    "imap_port": 993,
+    "daily_limit": 50,
+    "sent_today": 0,
+    "last_reset_date": "2026-09-09",
+    "warmup_enabled": true,
+    "warmup_score": 98,
+    "warmup_sent_today": 2
+  }
+]

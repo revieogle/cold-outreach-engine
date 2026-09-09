@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: cold-outreach-engine
+    runtime: docker
+    plan: free
+    envVars:
+      - key: DATA_DIR
+        value: /data
+      - key: DASHBOARD_USERNAME
+        value: admin
+      - key: DASHBOARD_PASSWORD
+        generateValue: true
